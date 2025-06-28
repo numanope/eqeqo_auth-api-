@@ -1,10 +1,21 @@
+use crate::db::DB;
 use httpageboy::{Request, Response, StatusCode};
 
-pub fn list_users(_req: &Request) -> Response {
+pub fn list_users(_req: &Request, db: &DB) -> Response {
+  let users = db.list_users();
+  let user_list: Vec<String> = users
+    .iter()
+    .map(|user| {
+      format!(
+        "ID: {}, Name: {}, Email: {}",
+        user.id, user.name, user.email
+      )
+    })
+    .collect();
   Response {
     status: StatusCode::Ok.to_string(),
     content_type: String::new(),
-    content: "Demo: Listar usuarios".as_bytes().to_vec(),
+    content: user_list.join("\n").as_bytes().to_vec(),
   }
 }
 

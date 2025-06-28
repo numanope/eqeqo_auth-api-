@@ -1,4 +1,5 @@
 use httpageboy::{Rt, Server};
+mod db;
 mod handlers;
 use crate::handlers::{
   create_role, create_user, delete_role, delete_user, get_user, list_roles, list_users, update_user,
