@@ -1,34 +1,25 @@
-use std::collections::HashMap;
-
-#[derive(Debug, Clone)]
-pub struct User {
-  pub id: String,
-  pub name: String,
-  pub email: String,
-}
+use crate::classes::user::User;
 
 pub struct DB {
-  users: HashMap<String, User>,
+  users: Vec<User>,
 }
 
 impl DB {
   pub fn new() -> Self {
-    DB {
-      users: HashMap::new(),
-    }
+    DB { users: vec![] }
   }
 
   pub fn add_user(&mut self, user: User) {
-    self.users.insert(user.id.clone(), user);
+    self.users.push(user);
   }
 
   pub fn get_user(&self, id: &str) -> Option<&User> {
-    self.users.get(id)
+    self.users.iter().find(|u| u.id == id)
   }
 
   pub fn update_user(&mut self, user: User) -> Result<(), String> {
-    if self.users.contains_key(&user.id) {
-      self.users.insert(user.id.clone(), user);
+    if let Some(index) = self.users.iter().position(|u| u.id == user.id) {
+      self.users[index] = user;
       Ok(())
     } else {
       Err("User not found".to_string())
@@ -36,8 +27,8 @@ impl DB {
   }
 
   pub fn delete_user(&mut self, id: &str) -> Result<(), String> {
-    if self.users.contains_key(id) {
-      self.users.remove(id);
+    if let Some(index) = self.users.iter().position(|u| u.id == id) {
+      self.users.remove(index);
       Ok(())
     } else {
       Err("User not found".to_string())
@@ -45,6 +36,17 @@ impl DB {
   }
 
   pub fn list_users(&self) -> Vec<&User> {
-    self.users.values().collect()
+    self.users.iter().collect()
+  }
+
+  pub fn test_content(&mut self) {
+    self.add_user(User {
+      id: "U1".to_string(),
+      name: "John".to_string(),
+    });
+    self.add_user(User {
+      id: "U2".to_string(),
+      name: "Bob".to_string(),
+    });
   }
 }

@@ -1,12 +1,15 @@
 use httpageboy::{Rt, Server};
+mod classes;
 mod db;
 mod handlers;
+
 use crate::handlers::{
   create_role, create_user, delete_role, delete_user, get_user, list_roles, list_users, update_user,
 };
 
 fn main() {
   let serving_url: &str = "127.0.0.1:7878";
+  // 127.0.0.1:7878
   let threads_number: u8 = 10;
 
   let mut server = Server::new(serving_url, threads_number, None).unwrap();
