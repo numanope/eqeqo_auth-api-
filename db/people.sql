@@ -20,10 +20,11 @@ CREATE TABLE people.permissions (
 
 CREATE TABLE IF NOT EXISTS people.people (
   id SERIAL PRIMARY KEY,
+  hash TEXT NOT NULL,
   name TEXT NOT NULL,
-  person_type people.people_type NOT NULL DEFAULT 'N',
-  document_type people.document_type NOT NULL DEFAULT 'DNI',
-  document_number TEXT NOT NULL,
+  person_type people.people_type DEFAULT 'N',
+  document_type people.document_type DEFAULT 'DNI',
+  document_number TEXT,
   created_at NUMERIC NOT NULL,
   removed_at NUMERIC DEFAULT NULL,
   UNIQUE (document_type, document_number)
