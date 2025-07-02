@@ -17,17 +17,17 @@ impl DB {
     self.users.iter().find(|u| u.id == id)
   }
 
-  pub fn update_user(&mut self, user: User) -> Result<(), String> {
-    if let Some(index) = self.users.iter().position(|u| u.id == user.id) {
-      self.users[index] = user;
+  pub fn update_user(&mut self, user_id: String, updated_user: User) -> Result<(), String> {
+    if let Some(index) = self.users.iter().position(|u| u.id == user_id) {
+      self.users[index] = updated_user;
       Ok(())
     } else {
       Err("User not found".to_string())
     }
   }
 
-  pub fn delete_user(&mut self, id: &str) -> Result<(), String> {
-    if let Some(index) = self.users.iter().position(|u| u.id == id) {
+  pub fn delete_user(&mut self, user_id: &str) -> Result<(), String> {
+    if let Some(index) = self.users.iter().position(|u| u.id == user_id) {
       self.users.remove(index);
       Ok(())
     } else {
@@ -43,10 +43,26 @@ impl DB {
     self.add_user(User {
       id: "U1".to_string(),
       name: "John".to_string(),
+      hash: "".to_string(),
+      person_type: "".to_string(),
+      document_type: "".to_string(),
+      document_number: "".to_string(),
     });
     self.add_user(User {
       id: "U2".to_string(),
       name: "Bob".to_string(),
+      hash: "".to_string(),
+      person_type: "".to_string(),
+      document_type: "".to_string(),
+      document_number: "".to_string(),
+    });
+    self.add_user(User {
+      id: "U3".to_string(),
+      name: "Jack".to_string(),
+      hash: "".to_string(),
+      person_type: "".to_string(),
+      document_type: "".to_string(),
+      document_number: "".to_string(),
     });
   }
 }
