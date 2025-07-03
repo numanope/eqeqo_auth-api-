@@ -20,30 +20,20 @@ CREATE TABLE people.permissions (
 
 CREATE TABLE IF NOT EXISTS people.people (
   id SERIAL PRIMARY KEY,
-  hash TEXT NOT NULL,
-  name TEXT NOT NULL,
-  person_type people.people_type DEFAULT 'N',
-  document_type people.document_type DEFAULT 'DNI',
-  document_number TEXT,
-  created_at NUMERIC NOT NULL,
-  removed_at NUMERIC DEFAULT NULL,
-  UNIQUE (document_type, document_number)
+  password_hash TEXT NOT NULL,
+  username TEXT NOT NULL UNIQUE,
+  created_at BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())::BIGINT),
+  removed_at BIGINT DEFAULT NULL
 );
-ALTER TABLE people.people ALTER COLUMN created_at SET DEFAULT EXTRACT(EPOCH FROM NOW());
 
 CREATE TABLE people.role_permissions (
   id SERIAL PRIMARY KEY,
   role_id INTEGER NOT NULL REFERENCES people.roles(id) ON DELETE CASCADE,
-  permission TEXT NOT NULL,
-  UNIQUE (role_id, permission)
+  permission_id INTEGER NOT NULL REFERENCES people.permissions(id) ON DELETE CASCADE,
+  UNIQUE (role_id, permission_id)
 );
-
-CREATE TABLE people.people_role (
-  id SERIAL PRIMARY KEY,
-  person_id INTEGER REFERENCES people.people(id) NOT NULL ON DELETE CASCADE,
-  role_id INTEGER REFERENCES people.roles(id) NOT NULL ON DELETE CASCADE,
-  UNIQUE (person_id, role_id)
-);
+CREATE INDEX ON people.role_permissions(role_id);
+CREATE INDEX ON people.role_permissions(permission_id);
 
 CREATE TABLE people.service_roles (
   id SERIAL PRIMARY KEY,
