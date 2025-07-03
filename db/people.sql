@@ -15,7 +15,7 @@ CREATE TABLE people.roles (
 
 CREATE TABLE people.permissions (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL DEFAULT ''::TEXT UNIQUE
+  name TEXT NOT NULL DEFAULT '' UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS people.people (
@@ -27,29 +27,19 @@ CREATE TABLE IF NOT EXISTS people.people (
 );
 
 CREATE TABLE people.role_permissions (
-  id SERIAL PRIMARY KEY,
   role_id INTEGER NOT NULL REFERENCES people.roles(id) ON DELETE CASCADE,
   permission_id INTEGER NOT NULL REFERENCES people.permissions(id) ON DELETE CASCADE,
-  UNIQUE (role_id, permission_id)
+  PRIMARY KEY (role_id, permission_id)
 );
-CREATE INDEX ON people.role_permissions(role_id);
-CREATE INDEX ON people.role_permissions(permission_id);
 
 CREATE TABLE people.service_roles (
-  id SERIAL PRIMARY KEY,
   service_id INTEGER NOT NULL REFERENCES services(id) ON DELETE CASCADE,
   role_id INTEGER NOT NULL REFERENCES people.roles(id) ON DELETE CASCADE,
-  UNIQUE (service_id, role_id)
+  PRIMARY KEY (service_id, role_id)
 );
 
 CREATE TABLE people.person_service_roles (
-  id SERIAL PRIMARY KEY,
   person_id INTEGER NOT NULL REFERENCES people.people(id) ON DELETE CASCADE,
-  service_role_id INTEGER NOT NULL REFERENCES people.service_roles(id) ON DELETE CASCADE,
-  UNIQUE (person_id, service_role_id)
+  service_role_id INTEGER NOT NULL REFERENCES people.service_roles(service_id, role_id) ON DELETE CASCADE,
+  PRIMARY KEY (person_id, service_role_id)
 );
-
-CREATE INDEX ON people.service_roles(service_id);
-CREATE INDEX ON people.service_roles(role_id);
-CREATE INDEX ON people.person_service_roles(person_id);
-CREATE INDEX ON people.person_service_roles(service_role_id);

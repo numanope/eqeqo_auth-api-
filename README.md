@@ -5,7 +5,8 @@ Minimal independent auth&auth API for shared centralized authentication.
 
 ## Usage
 
-* Install db (POSTGRES).
+* Setup database in `/db/people.sql` (POSTGRES).
+* Set parameters in `.env`.
 * Run `cargo run` on the terminal and go to http://127.0.0.1:7878.
 
 
