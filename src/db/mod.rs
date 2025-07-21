@@ -41,28 +41,100 @@ impl DB {
 
   pub fn test_content(&mut self) {
     self.add_user(User {
-      id: "U1".to_string(),
+      id: "U01".to_string(),
       name: "John".to_string(),
-      hash: "".to_string(),
-      person_type: "".to_string(),
-      document_type: "".to_string(),
-      document_number: "".to_string(),
+      hash: "hash1".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "12345678".to_string(),
     });
     self.add_user(User {
-      id: "U2".to_string(),
+      id: "U02".to_string(),
       name: "Bob".to_string(),
-      hash: "".to_string(),
-      person_type: "".to_string(),
-      document_type: "".to_string(),
-      document_number: "".to_string(),
+      hash: "hash2".to_string(),
+      person_type: "juridical".to_string(),
+      document_type: "RUC".to_string(),
+      document_number: "20123456789".to_string(),
     });
     self.add_user(User {
-      id: "U3".to_string(),
+      id: "U03".to_string(),
       name: "Jack".to_string(),
-      hash: "".to_string(),
-      person_type: "".to_string(),
-      document_type: "".to_string(),
-      document_number: "".to_string(),
+      hash: "hash3".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "87654321".to_string(),
+    });
+    self.add_user(User {
+      id: "U04".to_string(),
+      name: "Alice".to_string(),
+      hash: "hash4".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "11223344".to_string(),
+    });
+    self.add_user(User {
+      id: "U05".to_string(),
+      name: "Eve".to_string(),
+      hash: "hash5".to_string(),
+      person_type: "juridical".to_string(),
+      document_type: "RUC".to_string(),
+      document_number: "20987654321".to_string(),
+    });
+    self.add_user(User {
+      id: "U06".to_string(),
+      name: "Charlie".to_string(),
+      hash: "hash6".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "44556677".to_string(),
+    });
+    self.add_user(User {
+      id: "U07".to_string(),
+      name: "David".to_string(),
+      hash: "hash7".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "99887766".to_string(),
+    });
+    self.add_user(User {
+      id: "U08".to_string(),
+      name: "Grace".to_string(),
+      hash: "hash8".to_string(),
+      person_type: "juridical".to_string(),
+      document_type: "RUC".to_string(),
+      document_number: "20775544332".to_string(),
+    });
+    self.add_user(User {
+      id: "U09".to_string(),
+      name: "Hank".to_string(),
+      hash: "hash9".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "33445566".to_string(),
+    });
+    self.add_user(User {
+      id: "U10".to_string(),
+      name: "Ivy".to_string(),
+      hash: "hash10".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "55667788".to_string(),
+    });
+    self.add_user(User {
+      id: "U11".to_string(),
+      name: "Oscar".to_string(),
+      hash: "hash11".to_string(),
+      person_type: "juridical".to_string(),
+      document_type: "RUC".to_string(),
+      document_number: "20442233119".to_string(),
+    });
+    self.add_user(User {
+      id: "U12".to_string(),
+      name: "Mia".to_string(),
+      hash: "hash12".to_string(),
+      person_type: "natural".to_string(),
+      document_type: "DNI".to_string(),
+      document_number: "66778899".to_string(),
     });
   }
 }
