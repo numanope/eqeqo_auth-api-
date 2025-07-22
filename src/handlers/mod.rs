@@ -1,6 +1,11 @@
 use crate::{classes::user::User, db::DB};
 use httpageboy::{Request, Response, StatusCode};
 use serde_json::json;
+mod permissions;
+mod relations;
+mod roles;
+mod services;
+mod users;
 
 pub fn home(_req: &Request) -> Response {
   Response {
