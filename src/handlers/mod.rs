@@ -1,4 +1,5 @@
-use crate::{classes::user::User, db::DB};
+use crate::classes::user::{Permission, Role, Service, User};
+use crate::db::DB;
 use httpageboy::{Request, Response, StatusCode};
 use serde_json::json;
 mod permissions;

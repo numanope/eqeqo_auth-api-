@@ -1,7 +1,19 @@
 [package]
-name = "auth-api"
+name = "auth_api"
 version = "0.0.1"
-edition = "2021"
+edition = "2024"
+authors = ["fahedsl <fahedsl@yandex.com>"]
+description = "Centralized authentication and authorization API for multiple independent services. Manages users, roles, permissions, and service associations."
+license = "MIT"
+repository = "https://gitlab.com/numanope/eqeqo/bazoj/auth-api"
+homepage = "https://gitlab.com/numanope/eqeqo/bazoj/auth-api"
+readme = "README.md"
+keywords = ["authentication", "authorization", "api", "users", "roles"]
+categories = ["authentication", "api", "access-control"]
+documentation = ""
+
+[lib]
+path = "src/lib.rs"
 
 [dependencies]
 httpageboy = { path = "../http-server", features = ["sync"] }
