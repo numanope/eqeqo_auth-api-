@@ -1,5 +1,4 @@
 use httpageboy::{Rt, Server};
-mod classes;
 mod db;
 mod handlers;
 use crate::handlers::*;
