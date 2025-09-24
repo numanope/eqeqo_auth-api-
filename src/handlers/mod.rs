@@ -1,18 +1,22 @@
 use crate::db::DB;
 use httpageboy::{Request, Response, StatusCode};
 use serde::{Deserialize, Serialize};
-use serde_json::json; // Add for request body parsing
+// use serde_json::json; // Add for request body parsing
 mod permissions;
 mod relations;
 mod roles;
 mod services;
 mod users;
 
-// Helper to create a DB instance with test content
-fn get_initialized_db() -> DB {
-  let mut db = DB::new();
-  db.test_content();
+async fn get_initialized_db() -> DB {
+  let db = DB::new().await.unwrap();
   db
+}
+
+#[derive(Serialize)]
+struct User {
+  id: i32,
+  username: String,
 }
 
 pub fn home(_req: &Request) -> Response {
@@ -24,10 +28,14 @@ pub fn home(_req: &Request) -> Response {
 }
 
 // Users
-pub fn list_users(_req: &Request) -> Response {
-  let db = get_initialized_db();
-  let users = db.list_users();
-  let json_response = json!(users).to_string();
+pub async fn list_users(_req: &Request) -> Response {
+  let db = DB::new().await.unwrap();
+  let users = sqlx::query_as!(User, "SELECT id, username FROM people.people")
+    .fetch_all(db.pool())
+    .await
+    .unwrap();
+
+  let json_response = serde_json::to_string(&users).unwrap();
   Response {
     status: StatusCode::Ok.to_string(),
     content_type: "application/json".to_string(),
@@ -35,8 +43,7 @@ pub fn list_users(_req: &Request) -> Response {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-
+/*
 pub fn create_user(req: &Request) -> Response {
   let mut db = get_initialized_db();
   match serde_json::from_slice::<CreateUserPayload>(&req.body) {
@@ -971,3 +978,4 @@ pub fn list_services_of_person(req: &Request) -> Response {
     },
   }
 }
+*/
