@@ -1,0 +1,55 @@
+{
+  "home": {
+    "title": "Bienvenido a Nuestra Tienda",
+    "subtitle": "Descubre productos únicos y de alta calidad para tu día a día.",
+    "hero_image_url": "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2940&auto=format&fit=crop",
+    "blocks_md": [
+      "## ¿Quiénes Somos?\n\nSomos una pequeña empresa apasionada por la artesanía y el diseño. Cada uno de nuestros productos es seleccionado cuidadosamente para garantizar la mejor calidad y una estética moderna y minimalista.",
+      "## Nuestra Misión\n\nCreemos en el consumo consciente y en el valor de los objetos bien hechos. Nuestra misión es ofrecerte productos que no solo sean funcionales, sino que también inspiren y aporten belleza a tu entorno.",
+      "## Ofertas Especiales\n\n¡No te pierdas nuestras ofertas de temporada! Suscríbete a nuestro boletín para recibir un **15% de descuento** en tu primera compra."
+    ],
+    "footer_text_md": "© 2024 CMS Web Simple. Todos los derechos reservados.",
+    "social_links": [
+      { "name": "instagram", "url": "https://instagram.com" },
+      { "name": "twitter", "url": "https://twitter.com" },
+      { "name": "facebook", "url": "https://facebook.com" }
+    ]
+  },
+  "products": {
+    "items": [
+      { "id": "p1", "name": "Taza de Cerámica", "price": 15.99, "stock": 42, "image_url": "https://images.unsplash.com/photo-1594312249179-885591e405a7?q=80&w=1887&auto=format&fit=crop", "tags": ["hogar", "ceramica"] },
+      { "id": "p2", "name": "Cuaderno de Notas", "price": 8.50, "stock": 120, "image_url": "https://images.unsplash.com/photo-1456735185859-c19216f2e4b2?q=80&w=1887&auto=format&fit=crop", "tags": ["papeleria", "oficina"] },
+      { "id": "p3", "name": "Planta de Interior", "price": 25.00, "stock": 15, "image_url": "https://images.unsplash.com/photo-1592205869329-f83151013444?q=80&w=1887&auto=format&fit=crop", "tags": ["hogar", "decoracion"] },
+      { "id": "p4", "name": "Lámpara de Escritorio", "price": 45.50, "stock": 8, "image_url": "https://images.unsplash.com/photo-1543273207-7023d83525a7?q=80&w=1887&auto=format&fit=crop", "tags": ["oficina", "iluminacion"] },
+      { "id": "p5", "name": "Botella de Agua Reutilizable", "price": 19.99, "stock": 75, "image_url": "https://images.unsplash.com/photo-1602143407151-247444768344?q=80&w=1887&auto=format&fit=crop", "tags": ["accesorios", "hogar"] },
+      { "id": "p6", "name": "Manta de Algodón", "price": 55.00, "stock": 20, "image_url": "https://images.unsplash.com/photo-1580301762328-3d8583483570?q=80&w=1887&auto=format&fit=crop", "tags": ["hogar", "textiles"] },
+      { "id": "p7", "name": "Teclado Mecánico", "price": 120.00, "stock": 10, "image_url": "https://images.unsplash.com/photo-1618384887924-2cde6b537eba?q=80&w=1964&auto=format&fit=crop", "tags": ["oficina", "electronica"] },
+      { "id": "p8", "name": "Velas Aromáticas", "price": 12.00, "stock": 50, "image_url": "https://images.unsplash.com/photo-1612293905888-29e276467323?q=80&w=1887&auto=format&fit=crop", "tags": ["hogar", "decoracion"] }
+    ],
+    "tags": ["hogar", "ceramica", "papeleria", "oficina", "decoracion", "iluminacion", "accesorios", "textiles", "electronica"]
+  },
+  "filters": {
+    "items": [
+      {
+        "id": "category",
+        "label": "Categoría",
+        "options": [
+          { "id": "cat-hogar", "label": "Hogar", "tag": "hogar" },
+          { "id": "cat-oficina", "label": "Oficina", "tag": "oficina" },
+          { "id": "cat-accesorios", "label": "Accesorios", "tag": "accesorios" }
+        ]
+      },
+      {
+        "id": "material",
+        "label": "Material",
+        "options": [
+          { "id": "mat-ceramica", "label": "Cerámica", "tag": "ceramica" },
+          { "id": "mat-textiles", "label": "Textiles", "tag": "textiles" }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "content_md": "## Contáctanos\n\n¿Tienes alguna pregunta o comentario? Nos encantaría saber de ti.\n\n**Email:** [hola@cmswebsimple.com](mailto:hola@cmswebsimple.com)\n\n**Dirección:** Calle Falsa 123, Ciudad Ejemplo, CP 08001"
+  }
+}
